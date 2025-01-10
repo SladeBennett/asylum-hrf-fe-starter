@@ -148,8 +148,8 @@ export const LandingPage = () => {
           Read More
         </button>
       </div>
-      <div class='p-10 pb-20'>
-        <button onClick={scrollToTop}>
+      <div class='p-10 pb-17'>
+        <button onClick={scrollToTop} class='border-solid border-2 border-black p-2 rounded-xl'>
           Back To Top ^
         </button>
       </div>
