@@ -4,13 +4,7 @@ import barGraph from '../../../assets/bar-graph.png';
 import paperStack from '../../../assets/paper-stack.jpg';
 import { useNavigate } from 'react-router-dom';
 import { useDownloadData } from '../../../hooks/useDownloadData.js';
-//import { decodeBase64 } from '../../../utils/decodeBase64.js';
 
-/**
- * TODO: Ticket 1:
- * Implement structure and styles of the Landing page using Tailwind
- * Implement any button functionality implied by the landing page screenshot example (tickets/examples)
- */
 export const LandingPage = () => {
   const navigate = useNavigate();
   const { downloadCSV } = useDownloadData();
@@ -27,7 +21,7 @@ export const LandingPage = () => {
   };
 
   const handleReadMore = () => {
-    // TODO: navigate to the humanrightsfirst.org homepage
+    window.location.href = "https://humanrightsfirst.org/";
   };
 
   return (
@@ -63,10 +57,10 @@ export const LandingPage = () => {
       </section>
 
       <div class='flex gap-10 justify-center text-white font-bold'>
-        <button class='p-2 primary-c pl-4 pr-4'>
+        <button onClick={ () => navigate('/graphs') }class='p-2 primary-c pl-4 pr-4'>
           View The Data
         </button>
-        <button class='primary-c p-2 pl-4 pr-4'>
+        <button onClick={ downloadCSV } class='primary-c p-2 pl-4 pr-4'>
           Download The Data
         </button>
       </div>
@@ -144,7 +138,7 @@ export const LandingPage = () => {
       </section>
 
       <div>
-        <button class='p-2 primary-c text-white pl-4 pr-4'>
+        <button onClick={handleReadMore} class='p-2 primary-c text-white pl-4 pr-4'>
           Read More
         </button>
       </div>
