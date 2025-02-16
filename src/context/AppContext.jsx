@@ -11,11 +11,13 @@ const useAppContextProvider = () => {
 
   useLocalStorage({ graphData, setGraphData });
 
+  let baseURL = 'https://hrf-asylum-be-b.herokuapp.com/cases'
+
   const getFiscalData = async () => {
     let fiscalDataRes;
     try {
       fiscalDataRes = await axios
-        .get('https://hrf-asylum-be-b.herokuapp.com/cases/fiscalSummary')
+        .get(`${baseURL}/fiscalSummary`)
       return (fiscalDataRes.data);
     } catch (err) {
       setIsDataLoading(false);
@@ -27,7 +29,7 @@ const useAppContextProvider = () => {
     let citizenshipRes;
     try {
       citizenshipRes = await axios
-        .get('https://hrf-asylum-be-b.herokuapp.com/cases/citizenshipSummary')
+        .get(`${baseURL}/citizenshipSummary`)
       return (citizenshipRes.data);
     } catch (err) {
       setIsDataLoading(false);

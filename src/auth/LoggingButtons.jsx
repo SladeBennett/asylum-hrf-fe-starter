@@ -13,6 +13,7 @@ export const LoggingButtons = () => {
       // TODO: Add Logout functionality here:
     } else {
       // TODO: Add Redirect functionality here:
+      
     }
   };
 
