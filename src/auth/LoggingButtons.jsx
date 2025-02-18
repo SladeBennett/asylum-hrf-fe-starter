@@ -16,6 +16,7 @@ export const LoggingButtons = () => {
   const buttonText = isAuthenticated ? 'Log Out' : 'Log In';
 
   const handleLogging = () => {
+    console.log(isAuthenticated)
     if (isAuthenticated) {
       // TODO: Add Logout functionality here:
       logout({ returnTo: window.location.origin })
