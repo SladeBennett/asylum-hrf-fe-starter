@@ -12,14 +12,15 @@ import { useAuth0 } from "@auth0/auth0-react";
 const Profile = () => {
   // TODO: Replace these with functionality from Auth0
   const isLoading = false;
-  const user = true;
+  //const user = true;
+  const { user } = useAuth0();
 
   if (isLoading || !user) {
     return <div className='text-center p-4'>Loading...</div>;
   }
 
   return (
-    <div>Profile Page</div>
+    <div>Profile Page of {user.name}</div>
   );
 };
 
