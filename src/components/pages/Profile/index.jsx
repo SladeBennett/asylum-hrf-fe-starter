@@ -1,3 +1,5 @@
+import { useAuth0 } from "@auth0/auth0-react";
+
 /**
  * TODO: Ticket 3:
  * Implement authentication using Auth0:
@@ -6,6 +8,7 @@
  * - Display the data
  * - Make this page a protected Route
  */
+
 const Profile = () => {
   // TODO: Replace these with functionality from Auth0
   const isLoading = false;
