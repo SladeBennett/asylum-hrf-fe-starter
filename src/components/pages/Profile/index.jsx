@@ -1,15 +1,6 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import { withAuthenticationRequired } from '@auth0/auth0-react'
 
-/**
- * TODO: Ticket 3:
- * Implement authentication using Auth0:
- * - Get the user data from Auth0
- * - Create and style the component
- * - Display the data
- * - Make this page a protected Route
- */
-
 const Profile = () => {
   const {
     isLoading,
