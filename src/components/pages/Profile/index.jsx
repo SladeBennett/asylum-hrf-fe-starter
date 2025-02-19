@@ -27,20 +27,14 @@ const Profile = () => {
 
   return (
     <div class='max-w-sm mx-auto bg-white rounded-lg shadow-lg p-6'>
-
       <img src={user.picture} class='rounded-full mx-auto mb-4' />
-
       <h1 class='font-bold text-2xl mb-2'>{user.name}</h1>
-
       <p class='mb-5'>{user.email}</p>
-
       <button
         onClick={handleClick}
         class='primary-c rounded text-white text-xl p-1 pl-3 pr-3'
-      >
-        Logout
+      >Logout
       </button>
-
     </div>
   );
 };
