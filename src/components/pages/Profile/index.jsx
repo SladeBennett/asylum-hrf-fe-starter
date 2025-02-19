@@ -10,17 +10,40 @@ import { useAuth0 } from "@auth0/auth0-react";
  */
 
 const Profile = () => {
+  
   // TODO: Replace these with functionality from Auth0
-  const isLoading = false;
-  //const user = true;
+  const {
+    isLoading,
+    logout,
+  } = useAuth0();
+
   const { user } = useAuth0();
+
+  const handleClick = () => {
+    logout({ returnTo: window.location.origin })
+  }
 
   if (isLoading || !user) {
     return <div className='text-center p-4'>Loading...</div>;
   }
 
   return (
-    <div>Profile Page of {user.name}</div>
+    <div class='max-w-sm mx-auto bg-white rounded-lg shadow-lg p-6'>
+
+      <img src={user.picture} class='rounded-full mx-auto mb-4'/>
+
+      <h1 class='font-bold text-2xl mb-2'>{user.name}</h1>
+
+      <p class='mb-5'>{user.email}</p>
+
+      <button
+      onClick={handleClick}
+      class='primary-c rounded text-white text-xl p-1 pl-3 pr-3'
+      >
+        Logout
+        </button>
+
+    </div>
   );
 };
 
