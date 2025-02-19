@@ -1,4 +1,5 @@
 import { useAuth0 } from "@auth0/auth0-react";
+import { withAuthenticationRequired } from '@auth0/auth0-react'
 
 /**
  * TODO: Ticket 3:
@@ -10,14 +11,11 @@ import { useAuth0 } from "@auth0/auth0-react";
  */
 
 const Profile = () => {
-  
-  // TODO: Replace these with functionality from Auth0
   const {
     isLoading,
     logout,
+    user
   } = useAuth0();
-
-  const { user } = useAuth0();
 
   const handleClick = () => {
     logout({ returnTo: window.location.origin })
@@ -30,21 +28,23 @@ const Profile = () => {
   return (
     <div class='max-w-sm mx-auto bg-white rounded-lg shadow-lg p-6'>
 
-      <img src={user.picture} class='rounded-full mx-auto mb-4'/>
+      <img src={user.picture} class='rounded-full mx-auto mb-4' />
 
       <h1 class='font-bold text-2xl mb-2'>{user.name}</h1>
 
       <p class='mb-5'>{user.email}</p>
 
       <button
-      onClick={handleClick}
-      class='primary-c rounded text-white text-xl p-1 pl-3 pr-3'
+        onClick={handleClick}
+        class='primary-c rounded text-white text-xl p-1 pl-3 pr-3'
       >
         Logout
-        </button>
+      </button>
 
     </div>
   );
 };
 
-export default Profile;
+export default withAuthenticationRequired(Profile, {
+  onRedirecting: () => (<div>Redirecting you to the login page...</div>)
+});
